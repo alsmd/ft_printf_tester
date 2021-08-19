@@ -6,7 +6,7 @@
 /*   By: flavio <flavio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 20:03:57 by flavio            #+#    #+#             */
-/*   Updated: 2021/08/19 13:00:36 by flavio           ###   ########.fr       */
+/*   Updated: 2021/08/19 14:23:01 by flavio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <string.h>
 #include <stdio.h>
 #include "../include/ft_printf.h"
+#include "print.h"
 #include <malloc.h>
 #include <limits.h>
 #include <sys/types.h>
@@ -57,27 +58,4 @@ void	type_i_tester();
 void	type_u_tester();
 void	type_percent_tester();
 
-/********Teste***************/
-#define PRINT(string, show,...) \
-		char	buffer_1[1000]; \
-		char	buffer_2[1000]; \
-		int		r_1; \
-		int		r_2; \
-		bzero(buffer_1, 1000); \
-		bzero(buffer_2, 1000); \
-		redirect("tmp"); \
-		r_1 = ft_printf(string, __VA_ARGS__); \
-		lseek(1, 0, SEEK_SET); \
-		read(1, buffer_1, 1000); \
-		redirect("tmp2"); \
-		r_2 = printf(string, __VA_ARGS__); \
-		fflush(stdout); \
-		lseek(1, 0, SEEK_SET); \
-		read(1, buffer_2, 1000); \
-		check(!(strcmp(buffer_1, buffer_2))); \
-		check(r_1 == r_2); \
-		unlink("tmp"); \
-		unlink("tmp2"); \
-		if (((strcmp(buffer_1, buffer_2)) || r_1 != r_2) || show)\
-			show_log(buffer_1, buffer_2, r_1, r_2);
 #endif
