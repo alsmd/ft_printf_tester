@@ -16,5 +16,11 @@
 	<li>Include print.h where you want to create your tests</li>
 	<li>Compile your program with the file <strong>print.c</strong> </li>
 	<li>Call inside braces "<strong>PRINT(STRING, CREATE LOG, ...)</strong>" to see if your function works in this context.</li>
-	<li>Example: <i>PRINT("is it %s in this %s", 0, "working", "context")</i></li>
+	<li>Example: </li>
+	<br>
+	{
+	<br>
+		&nbsp&nbsp&nbsp<i>PRINT("is it %s in this %s", 0, "working", "context")</i>
+		<br>
+	}<br>
 </ul>
