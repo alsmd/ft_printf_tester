@@ -6,7 +6,7 @@
 /*   By: flavio <flavio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 20:03:57 by flavio            #+#    #+#             */
-/*   Updated: 2021/08/19 10:21:20 by flavio           ###   ########.fr       */
+/*   Updated: 2021/08/19 13:00:36 by flavio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,20 @@
 #define PURPLE "\e[0;35m"
 #define CYN "\e[0;36m"
 #define WHITE "\e[0;37m"
+#ifndef MANDATORY
+#define MANDATORY 0
+#endif
+#ifndef BONUS
+#define BONUS 0
+#endif
 //utils
 void	check(short int codition);
 void	title(char	*string);
 void	mcheck(void	*ptr, size_t size);
 void	redirect(char *name);
 void	putstr_fd(char *s, int fd);
+void	putnbr(int n, int fd);
+void	show_log(char *buffer_1, char *buffer_2, int r_1, int r_2);
 
 //test
 void	type_c();
@@ -70,18 +78,6 @@ void	type_percent_tester();
 		check(r_1 == r_2); \
 		unlink("tmp"); \
 		unlink("tmp2"); \
-		if (show)\
-		{ \
-			unlink("log"); \
-			redirect("log"); \
-			write(1, "ft_printf:", 10); \
-			write(1, "\n", 1); \
-			write(1, buffer_1, r_1); \
-			write(1, "\n", 1); \
-			write(1, "printf:", 7); \
-			write(1, "\n", 1); \
-			write(1, buffer_2, r_2); \
-			write(1, "\n", 1); \
-			exit(1); \
-		}
+		if (((strcmp(buffer_1, buffer_2)) || r_1 != r_2) || show)\
+			show_log(buffer_1, buffer_2, r_1, r_2);
 #endif
