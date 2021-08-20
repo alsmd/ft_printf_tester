@@ -22,6 +22,7 @@
 	<li>Compile your program with the file <strong>print.c</strong> </li>
 	<li>Call inside braces "<strong>PRINT(STRING, CREATE LOG, ...)</strong>" to see if your function works in this context.</li>
 	<li>You have to pass at least 1 parameter starting from the third one.</li>
+	<li>Make sure you don't have a <strong>log</strong> file where you will use the function, cause it will be rewritten.</li>
 	<li>Example: </li>
 	<br>
 	{
