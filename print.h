@@ -6,7 +6,7 @@
 /*   By: flavio <flavio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 14:28:15 by flavio            #+#    #+#             */
-/*   Updated: 2021/08/19 14:28:36 by flavio           ###   ########.fr       */
+/*   Updated: 2021/08/21 06:27:08 by flavio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <stdlib.h>
 /*-------Cores-------*/
 #define BLACK "\e[0;30m"
 #define RED "\e[0;31m"
@@ -29,6 +30,11 @@
 #define PURPLE "\e[0;35m"
 #define CYN "\e[0;36m"
 #define WHITE "\e[0;37m"
+void	redirect(char *name);
+void	putstr_fd(char *s, int fd);
+void	check(short int codition);
+void	show_log(char *buffer_1, char *buffer_2, int r_1, int r_2);
+void	putnbr(int n, int fd);
 
 #define PRINT(string, show,...) \
 char	buffer_1[1000]; \
